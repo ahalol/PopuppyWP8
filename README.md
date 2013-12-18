@@ -11,7 +11,7 @@ It has some kinematics and inertia management so the dragging process feels quit
 Minimal code needed to start a dialog
 ==========
 
-`Manager.Show` is a static method that takes text parameters object and two `Action` statements: one to be triggered if user accepts a proposition and another if user turns it down.
+`Manager.Show` is a static method that takes text parameters object and two `EventHandler`s: one to be triggered if user accepts a proposition and another if user turns it down.
 
 `````c#
 var vars = new TextParams { Message = "Do you want to proceed?", Ok = "Yepp", Cancel = "Nope" };
