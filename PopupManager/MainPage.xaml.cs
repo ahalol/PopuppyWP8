@@ -27,13 +27,12 @@ namespace PopupManager
             var vars = new TextParams { Message = "Would you like to have some tea and crumpets in a half of an hour?", Ok = "Yes, please", Cancel = "No thanks" };
             Manager.Show(vars, (se, ev) => Debug.WriteLine("OK"), (se, ev) => Debug.WriteLine("Cancel"));
         }
-        protected override void OnBackKeyPress(CancelEventArgs ev)
+        protected override void OnBackKeyPress(CancelEventArgs e)
         {
-            if (Manager.ActivePopup.IsOpen)
+            if (Manager.ActivePopup.IsOpen && Manager.ActiveDrag != null)
             {
-                ev.Cancel = true;
-                if (Manager.ActiveDrag != null)
-                    Manager.ActiveDrag.OnCancel(this, ev);
+                Manager.ActiveDrag.OnCancel(this, e);
+                e.Cancel = true;
             }
         }
     }
