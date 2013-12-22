@@ -75,7 +75,7 @@ namespace PopupManager.Popuppy
         }
         private void Completed(object s, ManipulationCompletedEventArgs e)
         {
-            var sDist = e.FinalVelocities.LinearVelocity.X / 15 + Mover.X;
+            var sDist = e.FinalVelocities.LinearVelocity.X / 12 + Mover.X;
             var noSpring = Mover.X < 0 && sDist < 0 && sDist > Mover.X || Mover.X > 0 && sDist > 0 && sDist < Mover.X;
             if (sDist > ActualWidth / 1.5) OnAccept(s, e); else if (sDist < -ActualWidth / 1.5) OnCancel(s, e); 
             else if (!e.IsInertial || noSpring) Move(Mover.X, 0, 0, 0); else SpringAnimation(sDist);
