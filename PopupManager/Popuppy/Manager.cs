@@ -21,12 +21,13 @@ namespace PopupManager.Popuppy
         public static Popup ActivePopup = new Popup { IsOpen = false };
         public static void Show(TextParams texts, EventHandler Ok, EventHandler Cancel)
         {
-            // Init objects
-            int w = (int) App.RootFrame.ActualWidth;
-            ActiveDrag = new Popuppy { Params = texts, IsEnabled = true };
-            PopupBase dragBase = new PopupBase { Width = w, Height = App.RootFrame.ActualHeight };
             if (!ActivePopup.IsOpen)
-            { 
+            {
+                // Init objects
+                int w = (int) App.RootFrame.ActualWidth;
+                ActiveDrag = new Popuppy { Params = texts, IsEnabled = true };
+                PopupBase dragBase = new PopupBase { Width = w, Height = App.RootFrame.ActualHeight };
+            
                 // Set popup
                 ActivePopup.Child = dragBase;
                 ActivePopup.IsOpen = true;
