@@ -33,7 +33,7 @@ namespace PopupManager.Popuppy
                 SetValue(ParamsProperty, value);
             }
         }
-        public Popuppy() : base()
+        public Popuppy()
         {
             InitializeComponent();
         }
